@@ -31,12 +31,19 @@ if (!fs.existsSync(uploadsDir)) {
 
 
 app.use(cors({
-  origin: ["https://huxnstore.vercel.app", "http://localhost:5173"],
+  origin: [
+    "https://huxnstore.vercel.app",
+    "https://huxnstore-git-main-aroojkhan1258s-projects.vercel.app",
+    /https:\/\/huxnstore-.*\.vercel\.app$/
+  ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
 }));
 app.options("*", cors());
+
+
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
